@@ -16,13 +16,14 @@ class CreatePresensisTable extends Migration
         Schema::create('presensis', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-            $table->string('email', 255);
-            $table->string('no', 255);
-            $table->string('education', 255);
+            // $table->string('email', 255);
+            // $table->string('no', 255);
+            // $table->string('education', 255);
+            $table->unsignedBigInteger('peserta_id');
 
             $table->timestamps();
 
-            // $table->foreign('peserta_id')->references('id')->on('pesertas')->onDelete('cascade');
+            $table->foreign('peserta_id')->references('id')->on('pesertas')->onDelete('cascade');
         });
     }
 

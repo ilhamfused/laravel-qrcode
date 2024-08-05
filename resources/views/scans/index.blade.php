@@ -5,8 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap demo</title>
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
     <script type="text/javascript" src="/assets/js/instascan.min.js"></script>
 </head>
 
@@ -16,15 +15,28 @@
         <div class="card bg-white shadow rounded-3 p-3 border-0">
             @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Selamat</strong> Silahkan masuk.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <strong>SELAMAT</strong> Silahkan masuk.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             @endif
 
             @if (session()->has('fail'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>MAAF</strong> Nama anda tidak terdaftar.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+
+            @if (session()->has('terpakai'))
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Maaf</strong> Nama anda sudah terdaftar.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <strong>TERPAKAI</strong> Nama anda sudah terpakai.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             @endif
 
@@ -42,6 +54,28 @@
                     <th>Nama</th>
                 </tr>
             </table>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5 id="nama-peserta"></h5>
+                    <h5 id="kloter-peserta"></h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -64,14 +98,27 @@
         });
 
         scanner.addListener('scan', function(c) {
+            const content = c.split(',');
+            const nama = content[0];
+            const kloter = content[1];
+            // const date = new Date(kloter);
+            // const formatter = new Intl.DateTimeFormat('id-ID', {
+            //     weekday: "long",
+            //     year: "numeric",
+            //     month: "long",
+            //     day: "numeric",
+            // });
+            // const formattedDate = formatter.format(date);
             console.log(c);
-            document.getElementById('name').value = c;
-            document.getElementById('form').submit();
+            $('#myModal').modal('show')
+            $('#nama-peserta').text(`Nama: ${nama}`);
+            $('#kloter-peserta').text(`Kloter: ${kloter}`);
+            // document.getElementById('form').submit();
+            // myModal.show();
         })
     </script>
-    <script src="/assets/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+    <script src="/assets/js/jquery.slim.min.js"></script>
+    <script script src="/assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
