@@ -16,6 +16,9 @@ class CreatePesertasTable extends Migration
         Schema::create('pesertas', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
+            $table->string('email', 255);
+            $table->string('no', 255);
+            $table->string('education', 255);
             $table->timestamps();
         });
     }
