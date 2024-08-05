@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AbsenController;
+use App\Http\Controllers\PesertaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('scans.index');
 });
+Route::get('/import-peserta', function () {
+    return view('peserta.import');
+});
 Route::post('/store', [AbsenController::class, 'store'])->name('store');
+Route::post('/import-csv', [PesertaController::class, 'importCsv'])->name('import-csv');
+// Route::post('/import-csv', [PesertaController::class, 'importCSV'])->name('import');
