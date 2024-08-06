@@ -16,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('scans.index');
+    return view('dashboard.index');
 });
 Route::get('/import-peserta', function () {
     return view('peserta.import');
 });
+// Route::get('/coba', function () {
+//     return view('dashboard.index');
+// });
+
 Route::post('/store', [AbsenController::class, 'store'])->name('store');
 Route::post('/import-csv', [PesertaController::class, 'importCsv'])->name('import-csv');
 // Route::post('/import-csv', [PesertaController::class, 'importCSV'])->name('import');
