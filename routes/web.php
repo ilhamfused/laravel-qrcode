@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\PesertaController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PresensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,9 @@ Route::get('/peserta', function () {
     return view('dashboard.peserta.index');
 });
 Route::resource('/peserta', PesertaController::class)->only([
+    'index'
+]);
+Route::resource('/presensi', PresensiController::class)->only([
     'index'
 ]);
 // Route::get('/coba', function () {

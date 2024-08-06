@@ -56,11 +56,10 @@
                         <span>Peserta</span>
                     </a>
                 </li>
-                <li
-                    class="sidebar-item {{ Request::is('dashboard/applicants') || Request::is('dashboard/applicants/*') ? 'active' : '' }}">
-                    <a href="/dashboard/applicants" class='sidebar-link'>
+                <li class="sidebar-item {{ Request::is('presensi') || Request::is('presensi/*') ? 'active' : '' }}">
+                    <a href="/presensi" class='sidebar-link'>
                         <i class="bi bi-file-text-fill"></i>
-                        <span>Applicants</span>
+                        <span>Daftar Hadir</span>
                     </a>
                 </li>
                 {{-- @endif
