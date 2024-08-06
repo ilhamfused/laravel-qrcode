@@ -25,9 +25,7 @@ Route::get('/import-peserta', function () {
 Route::get('/peserta', function () {
     return view('dashboard.peserta.index');
 });
-Route::resource('/peserta', PesertaController::class)->only([
-    'index'
-]);
+Route::resource('/peserta', PesertaController::class);
 Route::resource('/presensi', PresensiController::class)->only([
     'index'
 ]);
@@ -35,6 +33,6 @@ Route::resource('/presensi', PresensiController::class)->only([
 //     return view('dashboard.index');
 // });
 
-Route::post('/store', [AbsenController::class, 'store'])->name('store');
+Route::post('/store', [AbsenController::class, 'storeBaru'])->name('store');
 Route::post('/import-csv', [PesertaController::class, 'importCsv'])->name('import-csv');
 // Route::post('/import-csv', [PesertaController::class, 'importCSV'])->name('import');

@@ -12,6 +12,41 @@
                     </div>
                 </div>
             </div>
+
+            <section class="section">
+                <div class="card">
+                    <div class="card-header">
+                        Import Peserta
+                        <form action="{{ route('import-csv') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="messages">
+                                @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="fields">
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control" id="import_csv" name="import_csv"
+                                        accept=".csv">
+                                    <label class="input-group-text" for="import_csv">Upload</label>
+                                </div>
+                                <button type="submit" class="btn btn-success">Import CSV</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="card">
+                    <div class="card-header">
+                        <a href="/peserta/create" class="btn btn-primary">Tambah Peserta</a>
+                    </div>
+                </div>
+            </section>
+
             <section class="section">
                 <div class="card">
                     <div class="card-header">
@@ -22,16 +57,34 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Created At</th>
-                                    <th>Updated At</th>
+                                    <th>Email</th>
+                                    <th>No</th>
+                                    <th>Pendidikan</th>
+                                    <th>Sesi</th>
+                                    <th>Scan pada</th>
+                                    <th>Kehadiran</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($pesertas as $peserta)
                                     <tr>
                                         <td>{{ $peserta->name }}</td>
-                                        <td>{{ $peserta->updated_at }}</td>
-                                        <td>{{ $peserta->created_at }}</td>
+                                        <td>{{ $peserta->id }}</td>
+                                        <td>{{ $peserta->no }}</td>
+                                        <td>{{ $peserta->education }}</td>
+                                        <td>{{ $peserta->session }}</td>
+                                        <td>{{ $peserta->present_time }}</td>
+                                        <td>{{ $peserta->present ? 'Hadir' : 'Tidak Hadir' }}</td>
+                                        <td>
+                                            <a href="/peserta/{{ $peserta->id }}/edit" class="btn btn-warning">Update</a>
+                                            <form action="/peserta/{{ $peserta->id }}" method="post" class="d-inline">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger"
+                                                    onclick="confirm('Anda yakin?')">Delete</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -40,6 +93,28 @@
                 </div>
 
             </section>
+
+            <section class="section">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Ringkasan</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Total Peserta : {{ $total_peserta }}</p>
+                        <p>Total Peserta Hadir : {{ $total_peserta_hadir }}</p>
+                        <p>Total Peserta Tidak Hadir : {{ $total_peserta - $total_peserta_hadir }}</p>
+                        <h6>Ringkasan 10 Agustus</h6>
+                        <p>Total Peserta : {{ $total_peserta10 }}</p>
+                        <p>Total Peserta Hadir : {{ $total_peserta10_hadir }}</p>
+                        <p>Total Peserta Tidak Hadir : {{ $total_peserta10 - $total_peserta10_hadir }}</p>
+                        <h6>Ringkasan 11 Agustus</h6>
+                        <p>Total Peserta : {{ $total_peserta11 }}</p>
+                        <p>Total Peserta Hadir : {{ $total_peserta11_hadir }}</p>
+                        <p>Total Peserta Tidak Hadir : {{ $total_peserta11 - $total_peserta11_hadir }}</p>
+                    </div>
+                </div>
+            </section>
+
         </div>
 
         <footer>

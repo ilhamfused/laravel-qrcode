@@ -56,21 +56,21 @@
                         <span>Peserta</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ Request::is('presensi') || Request::is('presensi/*') ? 'active' : '' }}">
+                {{-- <li class="sidebar-item {{ Request::is('presensi') || Request::is('presensi/*') ? 'active' : '' }}">
                     <a href="/presensi" class='sidebar-link'>
                         <i class="bi bi-file-text-fill"></i>
                         <span>Daftar Hadir</span>
                     </a>
-                </li>
+                </li> --}}
                 {{-- @endif
                 @if (auth()->user()->isJobseeker()) --}}
-                <li
+                {{-- <li
                     class="sidebar-item {{ Request::is('dashboard/applied') || Request::is('dashboard/applied/*') ? 'active' : '' }}">
                     <a href="/dashboard/applied" class='sidebar-link'>
                         <i class="bi bi-send-check-fill"></i>
                         <span>Jobs Applied</span>
                     </a>
-                </li>
+                </li> --}}
                 {{-- @endif --}}
 
             </ul>
