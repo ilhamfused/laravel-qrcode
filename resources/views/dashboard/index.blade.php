@@ -7,11 +7,13 @@
             <div class="page-title mb-5">
                 <div class="row justify-content-center">
                     <div class="col-md-12 text-center">
-                        <h3>Arahkan barcode Anda ke Kamera</h3>
+                        <img src="/assets/images/logo.png" width="100px" alt="logo">
+                        <h2>Selamat Datang di Job Fair PT. KIW</h2>
                     </div>
                 </div>
             </div>
             <div class="section">
+                <h5 class="text-center">Arahkan Barcode Anda ke Kamera</h5>
                 <div class="row justify-content-center">
                     <div class="col-md-4 col-sm-12">
                         <div class="card card-scanner bg-white shadow rounded-3 p-3 border-0">
