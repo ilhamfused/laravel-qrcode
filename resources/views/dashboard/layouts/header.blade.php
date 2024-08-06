@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-lg-0">
                 </ul>
-                <div class="dropdown">
+                {{-- <div class="dropdown">
                     <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="user-menu d-flex">
                             <div class="user-name text-end me-3">
@@ -46,7 +46,7 @@
                             </form>
                         </li>
                     </ul>
-                </div>
+                </div> --}}
             </div>
         </div>
     </nav>

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/extensions/choices.js/public/assets/styles/choices.css">
     <link rel="stylesheet" href="/assets/css/main/app.css">
     <link rel="stylesheet" href="/assets/css/main/app-dark.css">
+    <link rel="stylesheet" href="/assets/css/my-style.css">
     <link rel="stylesheet" href="/assets/extensions/sweetalert2/sweetalert2.min.css">
     <link rel="shortcut icon" href="/assets/images/lokers/logo-only.svg" type="image/x-icon">
     <link rel="shortcut icon" href="/assets/images/lokers/logo-only.svg" type="image/png">

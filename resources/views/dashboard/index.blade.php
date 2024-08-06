@@ -16,8 +16,8 @@
 
     <div class="section">
         <div class="row justify-content-center">
-            <div class="col-md-5 col-sm-12">
-                <div class="card bg-white shadow rounded-3 p-3 border-0">
+            <div class="col-md-4 col-sm-12">
+                <div class="card card-scanner bg-white shadow rounded-3 p-3 border-0">
                     @if (session()->has('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>SELAMAT</strong> Silahkan masuk.
@@ -38,8 +38,10 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-
-                    <video id="preview" class="active"></video>
+                    <video id="preview" class="active camera-preview"></video>
+                    {{-- <div class="wrapper-scanner">
+                        <div class="scanner"></div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -51,7 +53,7 @@
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel1">Basic Modal</h5>
+                    <h5 class="modal-title" id="myModalLabel1">Konfirmasi</h5>
                     <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
                         <i data-feather="x"></i>
                     </button>
