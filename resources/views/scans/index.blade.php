@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    {{-- <h1>Hello, world!</h1> --}}
     <div class="container col-lg-4 py-5">
         <div class="card bg-white shadow rounded-3 p-3 border-0">
             @if (session()->has('success'))
@@ -42,19 +41,6 @@
 
             <video id="preview" class="active"></video>
         </div>
-
-        <form action="{{ route('store') }}" method="POST" id="form">
-            @csrf
-            <input type="hidden" name="name" id="name">
-        </form>
-
-        <div class="table-responsive mt-5">
-            <table class="table table-bordered table-hover">
-                <tr>
-                    <th>Nama</th>
-                </tr>
-            </table>
-        </div>
     </div>
 
     <!-- Modal -->
@@ -67,14 +53,18 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <h5 id="nama-peserta"></h5>
-                    <h5 id="kloter-peserta"></h5>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                <form action="{{ route('store') }}" method="POST" id="form">
+                    @csrf
+                    <input type="hidden" name="name" id="name">
+                    <div class="modal-body">
+                        <h5 id="nama-peserta"></h5>
+                        <h5 id="kloter-peserta"></h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tolak</button>
+                        <button type="submit" class="btn btn-primary">Terima</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -113,6 +103,9 @@
             $('#myModal').modal('show')
             $('#nama-peserta').text(`Nama: ${nama}`);
             $('#kloter-peserta').text(`Kloter: ${kloter}`);
+            $('#name').val(nama)
+            console.log(document.getElementById('name'));
+            // document.getElementById('name').value = nama
             // document.getElementById('form').submit();
             // myModal.show();
         })
