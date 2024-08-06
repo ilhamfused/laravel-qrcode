@@ -21,6 +21,12 @@ Route::get('/', function () {
 Route::get('/import-peserta', function () {
     return view('peserta.import');
 });
+Route::get('/peserta', function () {
+    return view('dashboard.peserta.index');
+});
+Route::resource('/peserta', PesertaController::class)->only([
+    'index'
+]);
 // Route::get('/coba', function () {
 //     return view('dashboard.index');
 // });

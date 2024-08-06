@@ -4,48 +4,52 @@
     <div id="main-content">
 
         <div class="page-heading">
-            <div class="page-title">
+            <div class="page-title mb-5">
                 <div class="row justify-content-center">
                     <div class="col-md-12 text-center">
                         <h3>Arahkan barcode Anda ke Kamera</h3>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+            <div class="section">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="card card-scanner bg-white shadow rounded-3 p-3 border-0">
+                            @if (session()->has('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>SELAMAT</strong> Silahkan masuk.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
 
-    <div class="section">
-        <div class="row justify-content-center">
-            <div class="col-md-4 col-sm-12">
-                <div class="card card-scanner bg-white shadow rounded-3 p-3 border-0">
-                    @if (session()->has('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>SELAMAT</strong> Silahkan masuk.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
+                            @if (session()->has('fail'))
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>MAAF</strong> Nama anda tidak terdaftar.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
 
-                    @if (session()->has('fail'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>MAAF</strong> Nama anda tidak terdaftar.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            @if (session()->has('terpakai'))
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>TERPAKAI</strong> Nama anda sudah terpakai.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
+                            <video id="preview" class="active camera-preview"></video>
+                            {{-- <div class="wrapper-scanner">
+                                <div class="scanner"></div>
+                            </div> --}}
                         </div>
-                    @endif
-
-                    @if (session()->has('terpakai'))
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong>TERPAKAI</strong> Nama anda sudah terpakai.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
-                    <video id="preview" class="active camera-preview"></video>
-                    {{-- <div class="wrapper-scanner">
-                        <div class="scanner"></div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 
     <!-- Modal -->
     <div class="modal fade text-left" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"

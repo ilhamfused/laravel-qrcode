@@ -43,19 +43,17 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
 
-                <li
-                    class="sidebar-item {{ Request::is('dashboard') || Request::is('dashboard/profile/*') ? 'active' : '' }}">
-                    <a href="/dashboard" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
-                        <span>Dashboard</span>
+                <li class="sidebar-item {{ Request::is('/') || Request::is('/*') ? 'active' : '' }}">
+                    <a href="/" class='sidebar-link'>
+                        <i class="bi bi-camera-fill"></i>
+                        <span>Scanner</span>
                     </a>
                 </li>
                 {{-- @if (auth()->user()->isCompany()) --}}
-                <li
-                    class="sidebar-item {{ Request::is('dashboard/jobs') || Request::is('dashboard/jobs/*') ? 'active' : '' }}">
-                    <a href="/dashboard/jobs" class='sidebar-link'>
-                        <i class="bi bi-briefcase-fill"></i>
-                        <span>Jobs</span>
+                <li class="sidebar-item {{ Request::is('peserta') || Request::is('peserta/*') ? 'active' : '' }}">
+                    <a href="/peserta" class='sidebar-link'>
+                        <i class="bi bi-person-fill"></i>
+                        <span>Peserta</span>
                     </a>
                 </li>
                 <li

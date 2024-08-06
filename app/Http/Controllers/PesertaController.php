@@ -2,72 +2,86 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\PesertasImport;
 use App\Models\Peserta;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
 
 class PesertaController extends Controller
 {
-    public function importCsv(Request $request)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        // dd($request);
-        // $request->validate([
-        //     'import_csv' => 'required|mimes:csv',
-        // ]);
-        Excel::import(new PesertasImport, $request->file('import_csv'));
-
-        return redirect('/')->with('success', 'All good!');
+        return view('dashboard.peserta.index', [
+            'pesertas' => Peserta::all(),
+        ]);
     }
-    // public function importCSV(Request $request)
-    // {
-        // $request->validate([
-        //     'import_csv' => 'required|mimes:csv',
-        // ]);
-        //read csv file and skip data
-        // $file = $request->file('import_csv');
-        // $handle = fopen($file->path(), 'r');
-        // dd($request);
 
-        //skip the header row
-    //     fgetcsv($handle);
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
 
-    //     $chunksize = 10;
-    //     while (!feof($handle)) {
-    //         $chunkdata = [];
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
 
-    //         for ($i = 0; $i < $chunksize; $i++) {
-    //             $data = fgetcsv($handle);
-    //             if ($data === false) {
-    //                 break;
-    //             }
-    //             $chunkdata[] = $data;
-    //         }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Peserta  $peserta
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Peserta $peserta)
+    {
+        //
+    }
 
-    //         $this->getchunkdata($chunkdata);
-    //     }
-    //     fclose($handle);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Peserta  $peserta
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Peserta $peserta)
+    {
+        //
+    }
 
-    //     return redirect()->route('employee.create')->with('success', 'Data has been added successfully.');
-    // }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Peserta  $peserta
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Peserta $peserta)
+    {
+        //
+    }
 
-    // public function getchunkdata($chunkdata)
-    // {
-    //     foreach ($chunkdata as $column) {
-    //         $name = $column[0];
-            // $email = $column[2];
-            // $no = $column[3];
-            // $education = $column[4];
-
-            //create new employee
-            // $peserta = new Peserta();
-            // $peserta->name = $name;
-            // $peserta->email = $email;
-            // $peserta->no = $no;
-            // $peserta->education = $education;
-    //         $peserta->save();
-    //     }
-    // }
-
-
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Peserta  $peserta
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Peserta $peserta)
+    {
+        //
+    }
 }
