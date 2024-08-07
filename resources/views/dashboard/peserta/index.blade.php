@@ -28,8 +28,7 @@
                             </div>
                             <div class="fields">
                                 <div class="input-group mb-3">
-                                    <input type="file" class="form-control" id="import_csv" name="import_csv"
-                                        accept=".csv">
+                                    <input type="file" class="form-control" id="import_csv" name="import_csv">
                                     <label class="input-group-text" for="import_csv">Upload</label>
                                 </div>
                                 <button type="submit" class="btn btn-success">Import CSV</button>
@@ -111,6 +110,7 @@
                         <p>Total Peserta : {{ $total_peserta11 }}</p>
                         <p>Total Peserta Hadir : {{ $total_peserta11_hadir }}</p>
                         <p>Total Peserta Tidak Hadir : {{ $total_peserta11 - $total_peserta11_hadir }}</p>
+                        <a href="/export" class="btn btn-success">Export data .xlsx</a>
                     </div>
                 </div>
             </section>

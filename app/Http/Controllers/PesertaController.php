@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Peserta;
 use Illuminate\Http\Request;
+use App\Exports\PesertaExport;
 use App\Imports\PesertasImport;
-use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PesertaController extends Controller
@@ -132,5 +133,11 @@ class PesertaController extends Controller
         Excel::import(new PesertasImport, $request->file('import_csv'));
 
         return redirect('/peserta')->with('success', 'All good!');
+    }
+
+    public function export()
+    {
+        return Excel::download(new PesertaExport, 'data_hadir_peserta.xlsx');
+        return redirect('/peserta');
     }
 }

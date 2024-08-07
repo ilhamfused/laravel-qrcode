@@ -35,4 +35,5 @@ Route::resource('/presensi', PresensiController::class)->only([
 
 Route::post('/store', [AbsenController::class, 'storeBaru'])->name('store');
 Route::post('/import-csv', [PesertaController::class, 'importCsv'])->name('import-csv');
+Route::get('/export', [PesertaController::class, 'export']);
 // Route::post('/import-csv', [PesertaController::class, 'importCSV'])->name('import');
