@@ -69,7 +69,7 @@
                                 @foreach ($pesertas as $peserta)
                                     <tr>
                                         <td>{{ $peserta->name }}</td>
-                                        <td>{{ $peserta->id }}</td>
+                                        <td>{{ $peserta->email }}</td>
                                         <td>{{ $peserta->no }}</td>
                                         <td>{{ $peserta->education }}</td>
                                         <td>{{ $peserta->session }}</td>
